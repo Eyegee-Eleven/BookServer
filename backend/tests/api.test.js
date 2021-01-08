@@ -11,7 +11,7 @@ describe('App', () => {
             })
     })
 
-    it('Books endpoint returns all info for a book(s)', (done) => {
+    it('Has a Books endpoint returns all info for a book(s)', (done) => {
         request.get('/books')
             .expect(200)
             .end((req, res) => {
@@ -23,5 +23,6 @@ describe('App', () => {
                 done()
             })
     })
+
 
 })

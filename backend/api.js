@@ -1,5 +1,8 @@
 var express = require('express')
 var app = express()
+var cors = require('cors')
+app.use(cors())
+
 var port = 3001
 
 app.use(express.json())

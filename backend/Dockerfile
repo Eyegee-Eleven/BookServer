@@ -8,6 +8,10 @@ COPY . /backend/app
 
 RUN npm install
 
+RUN npm install knex
+
+RUN npx knex migrate:latest
+
 EXPOSE 3001
 
 CMD ["npm", "start"]
