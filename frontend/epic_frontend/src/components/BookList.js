@@ -1,36 +1,40 @@
 import React from "react"
-import { 
-  BrowserRouter as Router, 
-  Route, 
-  Switch, 
-  Link 
-} from "react-router-dom";
 
- class BookList extends React.Component {
-    constructor(props) {
-      super(props)
-      this.state = {
-        titles:[]
-      }
-      this.props.books.map(item =>{
-        this.setState({titles:[...this.state.titles,item.title]})
-      })
-      console.log('test')
+
+class BookList extends React.Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      titles: []
     }
-    
 
-    
-    
+  }
 
-    render() {
-      
-        return(
-            <>
-              <div>meow</div>
-                <ul>{this.state.titles.map(title => {<li>{title}</li>})}</ul>
-            </>
-        )
-    }
+  componentDidMount() {
+    console.log('Did mount'+ JSON.stringify(this.props.books))
+    let bookt=this.props.books.map(item => {
+      console.log(`in the map of did mount ${JSON.stringify(item)}`)
+      return item;
+    })
+    this.setState({titles:bookt})
+  }
+
+  render() {
+    return (
+      <>
+        <ul>
+        {console.log('state' + JSON.stringify(this.state))}
+        {
+        this.state.titles.map(title => {
+          return (
+            <li>{title.Book_Title}</li>)
+        })
+        }
+        </ul>
+                
+      </>
+    )
+  }
 
 }
 
